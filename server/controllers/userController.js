@@ -2,6 +2,7 @@ const mongoose=require('mongoose')
 const eah = require("express-async-handler")
 const User = require('../models/User');
 const generateToken=require("../utils/generateToken")
+const nav=require("../data/nav")
 
 const createUser=eah(async(req,res)=>{
     const {username,email,password}=req.body;
@@ -14,7 +15,8 @@ const createUser=eah(async(req,res)=>{
             "id":createdUser.id,
             "username":createdUser.username,
             "email":createdUser.email,
-            "token":generateToken(createdUser._id)
+            "token":generateToken(createdUser._id),
+            "nav":nav.home
         }
     })
 })

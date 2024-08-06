@@ -18,6 +18,10 @@ const recipeSchema=mongoose.Schema({
     creator:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Cook'
+    },
+    createdDate:{
+        type:Date,
+        default:Date.now
     }
 })
 module.exports=mongoose.model('Recipe',recipeSchema)

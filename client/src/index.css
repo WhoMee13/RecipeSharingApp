@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body,#root{
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+#root{
+  padding: 1em;
+}
+/* *Custom alert */
+.alert{
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border:2px solid var(--c);
+  color:white;
+  max-width: 60vw;
+  padding:0.5em 1em;
+  background-color: var(--c);
+  border-radius: 10px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap:1em;
+  font-size: 1.2em;
+  box-shadow: 5px 5px 7px 2px rgba(0, 0, 0, 0.386),
+  5px 5px 7px 2px inset rgba(0, 0, 0, 0.372);
+  text-transform: capitalize;
+}
+/** Registration and Login */
+.auth{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+  padding: 2em 5em;
+  background-color: #d9d9d998;
+  width: 30vw;
+  border-radius: 10px;
+  gap: 1em;
+  text-align: center;
+  box-shadow: 0px 0px 10px 5px black;
+  backdrop-filter: blur(10px);
+
+}
+.auth button{
+  padding: 0.7em 1.5em;
+  background-color: #00FFFF;
+  border-radius: 50px;
+  font-size: larger;
+}
+.auth input{
+  padding: 0.7em 1em;
+  border:2px solid black;
+  border-radius: 10px;
+  font-size: 1.1em;
+}
+.auth h3{
+  text-align: left;
+  font-weight: 500;
+}
+.auth .role-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.auth .role-box label{
+  font-size: 1.2em;
+  display: flex;
+  gap: 1em;
+}
+label input{
+  background-color:black;
+  height: 20px;
+  width: 20px;
+}
+a{
+  text-decoration: none;
+}

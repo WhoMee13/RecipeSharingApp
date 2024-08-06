@@ -1,9 +1,9 @@
 const express=require("express")
 const app=express()
-const dotenv=require("dotenv")
-dotenv.config()
+require("dotenv").config()
 require("./config/dbconnect.js")()
 const ERROR=require("./middlewares/errorHandlerMiddleware.js")
+app.use(require("cors")())
 app.use(express.json())
 // Routes
 app.use(
