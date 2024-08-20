@@ -2,7 +2,7 @@ const mongoose=require('mongoose')
 const eah = require("express-async-handler")
 const Cook = require('../models/Cook');
 const generateToken=require("../utils/generateToken")
-
+const nav= require("../data/nav")
 const createCook=eah(async(req,res)=>{
     const {username,email,password}=req.body;
     const createdCook=await Cook.create({username:username,password:password,email:email}) 
@@ -10,10 +10,11 @@ const createCook=eah(async(req,res)=>{
         success:true,
         message:"Cook register successfull",
         data:{
-            "id":createdCook.id,
             "username":createdCook.username,
+            "role":'cook',
             "email":createdCook.email,
-            "token":generateToken(createdCook._id)
+            "token":generateToken(createdCook._id),
+            "nav":nav.home
         }
     })
 })
@@ -26,6 +27,10 @@ const loginCook=eah(async(req,res)=>{
                 success:true,
                 "message":"Login Succesfull",
                 data:{
+                    "username":loginCook.username,
+                    "role":'cook',
+                    "email":loginCook.email,
+                    "nav":nav.home,
                     "token":generateToken(loginCook.id)
                 }
             })

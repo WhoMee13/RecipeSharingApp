@@ -1,20 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import { useAuth } from '../../context/authContext'
 import Alert from '../../components/Alert'
 export default function Register() {
   const navigate=useNavigate()
-  const {value,setValue}=useAuth()
+  const {value,makeValue}=useAuth()
   const [username,setUsername] = useState("")
   const [email  ,setEmail] = useState("")
   const [password,setPassword] = useState("")
   const [role,setRole]=useState("")
   const [error,setError]=useState("")
-  document.body.style.background=`url('https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg')`
-  document.body.style.backgroundSize="cover"
-  document.body.style.backgroundPosition="center"
-  document.body.style.backgroundRepeat="no-repeat"
-  document.querySelector("#root").style.justifyContent="center"
+  useEffect(()=>{
+
+    document.body.style.background=`url('https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg')`
+    document.body.style.backgroundSize="cover"
+    document.body.style.backgroundPosition="center"
+    document.body.style.backgroundRepeat="no-repeat"
+    document.querySelector("#root").style.justifyContent="center"
+    return ()=>{
+      document.querySelector("#root").style.justifyContent="flex-start"
+      document.body.style.background=`none`
+
+    }
+  })
   const handleSubmit=async(e)=>{
     console.log(username,email,password,role)
     e.preventDefault()
@@ -33,8 +41,7 @@ export default function Register() {
       const data=await response.json()
       if(data.success){
         console.log(data)
-        localStorage.setItem("token",data.data.token)
-        setValue({
+        makeValue({
           "username":data.data.username,
           "email":data.data.email,
           "role":data.data.role,

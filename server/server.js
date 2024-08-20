@@ -6,6 +6,7 @@ const ERROR=require("./middlewares/errorHandlerMiddleware.js")
 app.use(require("cors")())
 app.use(express.json())
 // Routes
+app.use("/api/",require("./routes/authRoute"))
 app.use(
     "/api/user",
     require("./routes/userRoute")

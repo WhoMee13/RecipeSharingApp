@@ -11,10 +11,9 @@ const createUser=eah(async(req,res)=>{
         success:true,
         message:"User register successfull",
         data:{
-
-            "id":createdUser.id,
             "username":createdUser.username,
             "email":createdUser.email,
+            "role":"user",
             "token":generateToken(createdUser._id),
             "nav":nav.home
         }
@@ -29,7 +28,11 @@ const loginUser=eah(async(req,res)=>{
                 success:true,
                 "message":"Login Succesfull",
                 data:{
-                    "token":generateToken(loginUser.id)
+                    "username":loginUser.username,
+                    "role":"user",
+                    "email":loginUser.email,
+                    "token":generateToken(loginUser.id),
+                    "nav":nav.home
                 }
             })
         }

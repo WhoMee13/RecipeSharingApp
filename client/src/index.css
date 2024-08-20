@@ -1,3 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+} */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
   box-sizing: border-box;
@@ -12,9 +94,10 @@ body,#root{
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  padding: 1em;
 }
 #root{
-  padding: 1em;
+  padding: 1em 7vw;
 }
 /* *Custom alert */
 .alert{
@@ -45,7 +128,7 @@ body,#root{
   justify-content: space-evenly;
   padding: 2em 5em;
   background-color: #d9d9d998;
-  width: 30vw;
+  width: 35vw;
   border-radius: 10px;
   gap: 1em;
   text-align: center;
@@ -53,11 +136,15 @@ body,#root{
   backdrop-filter: blur(10px);
 
 }
-.auth button{
+button{
   padding: 0.7em 1.5em;
   background-color: #00FFFF;
   border-radius: 50px;
   font-size: larger;
+  font-weight: 600;
+}
+button:hover{
+  box-shadow: 0px 0px 5px 5px white;
 }
 .auth input{
   padding: 0.7em 1em;
@@ -78,6 +165,7 @@ body,#root{
   font-size: 1.2em;
   display: flex;
   gap: 1em;
+  align-items: center;
 }
 label input{
   background-color:black;
@@ -86,4 +174,64 @@ label input{
 }
 a{
   text-decoration: none;
+}
+.navBar{
+  background-color: #3A3AB8;
+  height: 100vh;
+  width: 25vw;
+  position: fixed;
+  left:0;
+  top:0;
+  display:flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+  z-index: 999;
+  padding: 1em;
+
+}
+nav a{
+  color: white;
+}
+
+nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 60%;
+  font-size: 1.4em;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.active{
+  color:#00FFFF;
+  font-size: 1.4em;
+}
+.collapsed{
+  max-width: 5vw;
+  justify-content: flex-start;
+}
+.collapsed nav,.collapsed button{
+  display:none;
+}
+.user_card{
+  display:flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  background-color: #D9D9D9;
+  padding: 1em;
+  min-height: 50vh;
+  overflow-y:visible;
+}
+.user_card button{
+  position: absolute;
+  bottom: -8%;
+}
+.user_card .share{
+  position: absolute;
+  top:10px;
+  right:10px;
 }
